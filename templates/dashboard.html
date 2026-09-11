@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ t.farmer_dashboard }}</h2>
+<div class="info">
+<p><b>{{ t.farmer_id_label }}</b> {{ farmer.farmer_id }}</p>
+<p><b>{{ t.name_label }}</b> {{ farmer.name }}</p>
+<p><b>{{ t.mobile_label }}</b> {{ farmer.phone }}</p>
+</div>
+<a class="btn" href="{{ url_for('book') }}">{{ t.book_new_slot }}</a>
+<h3>{{ t.my_bookings }}</h3>
+<table>
+<tr><th>{{ t.token }}</th><th>{{ t.date }}</th><th>{{ t.slot }}</th><th>{{ t.crop }}</th><th>{{ t.qty }}</th><th>{{ t.status }}</th><th>{{ t.payment }}</th></tr>
+{% for b in bookings %}
+<tr>
+<td><a href="{{ url_for('ticket', booking_id=b.booking_id) }}">{{ b.booking_id }}</a></td>
+<td>{{ b.booking_date }}</td><td>{{ b.slot }}</td><td>{{ b.crop }}</td>
+<td>{{ b.quantity }}</td><td>{{ b.status }}</td><td>{{ b.payment_status }}</td>
+</tr>
+{% else %}
+<tr><td colspan="7">{{ t.no_bookings }}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}

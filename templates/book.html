@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="formbox">
+<h2>{{ t.book_procurement_slot }}</h2>
+<p>{{ t.max_farmers_note }}</p>
+<form method="post">
+
+<label>{{ t.crop }}</label>
+<select name="crop" required>
+<option value="">{{ t.select_crop }}</option><option>{{ t.paddy }}</option><option>{{ t.wheat }}</option><option>{{ t.maize }}</option><option>{{ t.other }}</option>
+</select>
+<label>{{ t.expected_quantity }}</label><input type="number" name="quantity" min="0.1" step="0.1" required>
+<label for="farmer_rate">Rate (₹ per quintal)</label><input type="number" id="farmer_rate" name="farmer_rate" min="0" step="0.01" placeholder="Enter rate per quintal"  required>
+<label>{{ t.date }}</label><input type="date" name="booking_date" min="{{ today }}" required>
+<label>{{ t.time_slot }}</label>
+<select name="slot" required>
+<option>08:00 AM - 09:00 AM</option>
+<option>09:00 AM - 10:00 AM</option>
+<option>10:00 AM - 11:00 AM</option>
+<option>11:00 AM - 12:00 PM</option>
+<option>12:00 PM - 01:00 PM</option>
+<option>02:00 PM - 03:00 PM</option>
+<option>03:00 PM - 04:00 PM</option>
+<option>04:00 PM - 05:00 PM</option>
+</select>
+<button class="btn">{{ t.confirm_booking }}</button>
+</form>
+</div>
+{% endblock %}

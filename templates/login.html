@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="formbox">
+<h2>{{ t.login }}</h2>
+<form method="post">
+<label>{{ t.mobile_number }}</label><input name="phone" required>
+<label>{{ t.password }}</label><input type="password" name="password" required>
+<button class="btn">{{ t.login_button }}</button>
+</form>
+</div>
+{% endblock %}
