@@ -9,7 +9,7 @@ TRANSLATIONS = {
     "en": {
         # Navigation
         "home": "Home",
-        "register": "Registe
+        "register": "Register
         "login": "Farmer Login",
         "book_slot": "Book Slot",
         "dashboard": "Dashboard",
