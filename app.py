@@ -784,6 +784,10 @@ def admin_sms_logs():
     con.close()
     return render_template("sms_logs.html", logs=logs)
 
-if __name__=="__main__":
-    init_db()
-    app.run(debug=True)
+
+
+if __name__ == '__main__':
+    # Retrieve Render's assigned port (defaulting to 5000 for local testing)
+    port = int(os.environ.get("PORT", 5000))
+    # Bind to 0.0.0.0 so Render can detect and expose the service
+    app.run(host='0.0.0.0', port=port)
